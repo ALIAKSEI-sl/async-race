@@ -44,10 +44,16 @@
 					"error",
 					{
 						"ignore": [0, 1, -1],
-						"ignoreArrayIndexes": true,
-						"ignoreClassFieldInitialValues": true
+						"ignoreArrayIndexes": true
 					}
-				]
+				],
+				"@typescript-eslint/explicit-function-return-type": [
+					"error",
+					{
+						"allowExpressions": true
+					}
+				],
+				"@typescript-eslint/lines-between-class-members": "off"
 			}
 		},
 		{
