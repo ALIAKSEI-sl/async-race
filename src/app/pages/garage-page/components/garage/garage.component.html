@@ -1,0 +1,8 @@
+<h2 class="header-page">Page {{ page() }}</h2>
+<ul class="garage">
+	@for (car of cars(); track car.id) {
+		<li>
+			<race-car [car]="car" />
+		</li>
+	}
+</ul>

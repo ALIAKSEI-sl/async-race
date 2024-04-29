@@ -1,0 +1,21 @@
+<div class="flex-block">
+	<button
+		mat-stroked-button
+		color="warn"
+		[disabled]="!canStartRace()"
+		(click)="startRace()"
+	>
+		Race
+	</button>
+	<button
+		mat-stroked-button
+		color="warn"
+		[disabled]="canStartRace()"
+		(click)="stopRace()"
+	>
+		Reset
+	</button>
+	<button mat-stroked-button color="warn" (click)="generateCars()">
+		Generate cars
+	</button>
+</div>
