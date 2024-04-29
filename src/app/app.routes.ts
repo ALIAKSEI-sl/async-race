@@ -7,7 +7,13 @@ export const routes: Routes = [
 		path: '',
 		children: [
 			{ path: '', redirectTo: 'garage', pathMatch: 'full' },
-			{ path: 'garage', component: GaragePageComponent },
+			{
+				path: 'garage',
+				component: GaragePageComponent,
+				data: {
+					shouldReuse: true
+				}
+			},
 			{
 				path: 'winners',
 				loadComponent: (): Promise<typeof WinnersPageComponent> =>
