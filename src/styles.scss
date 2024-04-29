@@ -1,10 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 html,
 body {
 	height: 100%;
 }
+
 body {
-	margin: 0;
+	background-color: rgba(101, 87, 84, 0.74);
 	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+li {
+	list-style-type: none;
 }
 
 .flex-block {
@@ -12,4 +23,16 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+}
+
+race-winners-table .mdc-data-table__cell {
+	text-align: center;
+}
+
+race-winners-table .mdc-data-table__header-cell {
+	text-align: center;
+}
+
+.color-field.mat-mdc-form-field {
+	max-width: 60px;
 }

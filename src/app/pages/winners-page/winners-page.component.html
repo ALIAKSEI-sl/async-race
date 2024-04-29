@@ -1,1 +1,10 @@
-<p>winners-page works!</p>
+<h2 class="header-page">Page {{ page() }}</h2>
+
+<race-winners-table />
+
+<mat-paginator
+	hidePageSize="true"
+	[pageSize]="pageSize"
+	[length]="totalCountWinner()"
+	(page)="changePage($event)"
+/>
