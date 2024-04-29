@@ -1,1 +1,10 @@
-<p>garage-page works!</p>
+<race-editor />
+<race-controller />
+<race-garage />
+
+<mat-paginator
+	hidePageSize="true"
+	[pageSize]="pageSize"
+	[length]="totalCountCar()"
+	(page)="changePage($event)"
+/>
