@@ -1,0 +1,52 @@
+<div class="general-buttons">
+	<button mat-flat-button color="primary" (click)="emitUpdateCar()">
+		Update
+	</button>
+	<button mat-flat-button color="primary" (click)="removeCar()">Remove</button>
+	<span class="car-name">{{ car.name }}</span>
+</div>
+<div class="control-buttons">
+	<button
+		mat-flat-button
+		color="primary"
+		(click)="startCar()"
+		[disabled]="canStart()"
+	>
+		Start
+	</button>
+	<button
+		mat-flat-button
+		color="primary"
+		(click)="stopCar()"
+		[disabled]="!carStatus()"
+	>
+		Stop
+	</button>
+</div>
+<div class="road" [style.color]="car.color">
+	<div
+		class="car"
+		raceControlling
+		[@moveAnimation]="{
+			value: moveAnimations().state,
+			params: {
+				startX: moveAnimations().start,
+				endX: moveAnimations().end,
+				duration: moveAnimations().duration
+			}
+		}"
+		[id]="car.id"
+		[width]="carWidth"
+		[status]="carStatus()"
+		[(stopping)]="stoppingStatus"
+		[(animation)]="moveAnimations"
+	>
+		<svg-icon
+			src="../../../../../assets/car.svg"
+			[svgStyle]="{ 'width.px': carWidth, 'height.px': 50 }"
+		/>
+	</div>
+	<div class="flag" [style.right.px]="carWidth">
+		<svg-icon src="../../../../../assets/flag.svg" />
+	</div>
+</div>
