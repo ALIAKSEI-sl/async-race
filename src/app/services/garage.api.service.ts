@@ -1,20 +1,20 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICar } from '../../../models/garage.model';
-import { Url } from '../../../constants/url';
+import { Car, CreationCar } from '../models/garage.model';
+import { Url } from '../constants/url';
+import { LIMIT_GARAGE_PAGE } from '../constants/limits';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class GarageApiService {
 	private readonly url = Url.garage;
-
-	private readonly carLimit: number = 7;
+	private readonly carLimit = LIMIT_GARAGE_PAGE;
 
 	private readonly http = inject(HttpClient);
 
-	public getAllCars(page: number, limit = this.carLimit): Observable<ICar[]> {
+	public getAllCars(page: number, limit = this.carLimit): Observable<Car[]> {
 		const params = new HttpParams({
 			fromObject: {
 				_page: page.toString(),
@@ -22,17 +22,17 @@ export class GarageApiService {
 			}
 		});
 
-		return this.http.get<ICar[]>(this.url, { params });
+		return this.http.get<Car[]>(this.url, { params });
 	}
 
-	public getCar(id: number): Observable<ICar> {
+	public getCar(id: number): Observable<Car> {
 		const url = this.getFullUrl(id);
 
-		return this.http.get<ICar>(url);
+		return this.http.get<Car>(url);
 	}
 
-	public createCar(body: Omit<ICar, 'id'>): Observable<ICar> {
-		return this.http.post<ICar>(this.url, body);
+	public createCar(body: CreationCar): Observable<Car> {
+		return this.http.post<Car>(this.url, body);
 	}
 
 	public removeCar(id: number): Observable<void> {
@@ -41,10 +41,10 @@ export class GarageApiService {
 		return this.http.delete<void>(url);
 	}
 
-	public updateCar(id: number, body: Omit<ICar, 'id'>): Observable<ICar> {
+	public updateCar(id: number, body: CreationCar): Observable<Car> {
 		const url = this.getFullUrl(id);
 
-		return this.http.put<ICar>(url, body);
+		return this.http.put<Car>(url, body);
 	}
 
 	private getFullUrl(id: number): string {
