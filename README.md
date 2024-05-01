@@ -63,7 +63,7 @@ Application Architecture (40 points)
 
 Dynamic Content Generation (30 points)
 
-- [x] JavaScript-Generated HTML Content (30 points): All HTML content must be dynamically generated using JavaScript, with the <body> tag containing only a single <script> tag.
+- [ ] JavaScript-Generated HTML Content (30 points): All HTML content must be dynamically generated using JavaScript, with the <body> tag containing only a single <script> tag.
 
 Single Page Application (25 points)
 
