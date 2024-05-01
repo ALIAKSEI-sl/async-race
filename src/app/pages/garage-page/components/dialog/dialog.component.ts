@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DialogData } from '../../../../models/winners.model';
+import { DialogData } from '../../../../shared/models/winners.model';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({

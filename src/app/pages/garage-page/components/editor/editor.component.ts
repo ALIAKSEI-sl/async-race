@@ -14,9 +14,9 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { GarageApiService } from '../../../../services/garage.api.service';
+import { GarageApiService } from '../../../../shared/services/garage.api.service';
 import { GarageKeeperService } from '../../services/garage.keeper.service';
-import { CreationCar } from '../../../../models/garage.model';
+import { CreationCar } from '../../../../shared/models/garage.model';
 
 @Component({
 	selector: 'race-editor',

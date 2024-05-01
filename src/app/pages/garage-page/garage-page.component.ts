@@ -12,11 +12,11 @@ import { GarageKeeperService } from './services/garage.keeper.service';
 import { RaceControlService } from './services/race.control.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { DialogData, WinnerResult } from '../../models/winners.model';
+import { DialogData, WinnerResult } from '../../shared/models/winners.model';
 
-import { LIMIT_GARAGE_PAGE } from '../../constants/limits';
+import { LIMIT_GARAGE_PAGE } from '../../shared/constants/limits';
 
-import { WinnersKeeperService } from '../../services/winners.keeper.service';
+import { WinnersKeeperService } from '../../shared/services/winners.keeper.service';
 @Component({
 	selector: 'race-garage-page',
 	standalone: true,

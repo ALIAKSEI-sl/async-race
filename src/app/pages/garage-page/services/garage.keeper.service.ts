@@ -1,8 +1,8 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { GarageApiService } from '../../../services/garage.api.service';
+import { GarageApiService } from '../../../shared/services/garage.api.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { Subject, switchMap } from 'rxjs';
-import { Car } from '../../../models/garage.model';
+import { Car } from '../../../shared/models/garage.model';
 
 @Injectable({
 	providedIn: 'root'

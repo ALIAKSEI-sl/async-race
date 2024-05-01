@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { WinnersTableComponent } from './components/winners-table/winners-table.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { WinnersKeeperService } from '../../services/winners.keeper.service';
-import { LIMIT_WINNERS_PAGE } from '../../constants/limits';
+import { WinnersKeeperService } from '../../shared/services/winners.keeper.service';
+import { LIMIT_WINNERS_PAGE } from '../../shared/constants/limits';
 
 @Component({
 	selector: 'race-winners-page',

@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { WinnerResult } from '../../../models/winners.model';
+import { WinnerResult } from '../../../shared/models/winners.model';
 
 @Injectable({
 	providedIn: 'root'

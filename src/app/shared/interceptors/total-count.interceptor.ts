@@ -8,7 +8,7 @@ import {
 
 import { Observable, tap } from 'rxjs';
 import { inject } from '@angular/core';
-import { GarageKeeperService } from '../pages/garage-page/services/garage.keeper.service';
+import { GarageKeeperService } from '../../pages/garage-page/services/garage.keeper.service';
 import { WinnersKeeperService } from '../services/winners.keeper.service';
 import { Url } from '../constants/url';
 

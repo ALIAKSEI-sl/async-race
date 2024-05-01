@@ -9,7 +9,7 @@ import {
 	model
 } from '@angular/core';
 import { EngineApiService } from '../services/engine.api.service';
-import { DriveStatus, Movement } from '../../../models/engine.model';
+import { DriveStatus, Movement } from '../../../shared/models/engine.model';
 import {
 	Observable,
 	Subscription,
@@ -20,10 +20,10 @@ import {
 	throwError
 } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { StatusCode } from '../../../constants/status-code';
+import { StatusCode } from '../../../shared/constants/status-code';
 import { RaceControlService } from '../services/race.control.service';
-import { CAR_WIDTH, TO_SECONDS } from '../../../constants/limits';
-import { animationInit } from '../../../constants/animations';
+import { CAR_WIDTH, TO_SECONDS } from '../../../shared/constants/limits';
+import { animationInit } from '../../../shared/constants/animations';
 
 @Directive({
 	selector: '[raceControlling]',

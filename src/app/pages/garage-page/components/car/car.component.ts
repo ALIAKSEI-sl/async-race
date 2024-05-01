@@ -9,18 +9,21 @@ import {
 	signal
 } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { Car } from '../../../../models/garage.model';
+import { Car } from '../../../../shared/models/garage.model';
 import { MatButtonModule } from '@angular/material/button';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { GarageKeeperService } from '../../services/garage.keeper.service';
-import { GarageApiService } from '../../../../services/garage.api.service';
+import { GarageApiService } from '../../../../shared/services/garage.api.service';
 import { ControllingDirective } from '../../directives/controlling.directive';
 import { RaceControlService } from '../../services/race.control.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { trigger } from '@angular/animations';
-import { animationInit, moveAnimation } from '../../../../constants/animations';
-import { CAR_WIDTH } from '../../../../constants/limits';
+import {
+	animationInit,
+	moveAnimation
+} from '../../../../shared/constants/animations';
+import { CAR_WIDTH } from '../../../../shared/constants/limits';
 
 @Component({
 	selector: 'race-car',

@@ -5,12 +5,12 @@ import {
 	inject
 } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { WinnersKeeperService } from '../../../../services/winners.keeper.service';
+import { WinnersKeeperService } from '../../../../shared/services/winners.keeper.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SvgIconComponent } from 'angular-svg-icon';
-import { SortingLabel, Sort } from '../../../../models/winners.model';
-import { SORTING_LADLE } from '../../../../constants/sorting';
-import { columns } from '../../../../constants/winners-table';
+import { SortingLabel, Sort } from '../../../../shared/models/winners.model';
+import { SORTING_LADLE } from '../../../../shared/constants/sorting';
+import { columns } from '../../../../shared/constants/winners-table';
 
 @Component({
 	selector: 'race-winners-table',

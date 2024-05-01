@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { GarageApiService } from '../../../services/garage.api.service';
-import { CAR_MODELS, CAR_NAMES } from '../../../constants/cars-model';
-import { LIMIT_CAR, LIMIT_CAR_MODELS } from '../../../constants/limits';
-import { CarNames, CreationCar } from '../../../models/garage.model';
+import { GarageApiService } from '../../../shared/services/garage.api.service';
+import { CAR_MODELS, CAR_NAMES } from '../../../shared/constants/cars-model';
+import { LIMIT_CAR, LIMIT_CAR_MODELS } from '../../../shared/constants/limits';
+import { CarNames, CreationCar } from '../../../shared/models/garage.model';
 import { forkJoin } from 'rxjs';
 import { GarageKeeperService } from './garage.keeper.service';
 
