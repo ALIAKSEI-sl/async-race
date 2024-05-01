@@ -22,6 +22,7 @@ import { WinnersApiService } from './winners.api.service';
 import { GarageApiService } from './garage.api.service';
 import { StatusCode } from '../constants/status-code';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SnackBarService } from './snack-bar.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -34,6 +35,7 @@ export class WinnersKeeperService {
 		order: 'ASC'
 	});
 
+	private readonly snackBar = inject(SnackBarService);
 	private readonly garageApiService = inject(GarageApiService);
 	private readonly winnersApiService = inject(WinnersApiService);
 
@@ -89,14 +91,26 @@ export class WinnersKeeperService {
 
 		this.winnersApiService
 			.getWinner(id)
-			.pipe(catchError(this.catchError), mergeMap(updateWinner))
+			.pipe(
+				catchError(this.catchGetWinnerError),
+				mergeMap(updateWinner),
+				catchError(this.catchCreateWinnerError)
+			)
 			.subscribe(() => {
 				this.updateWinners();
 			});
 	}
 
-	private catchError(error: HttpErrorResponse): Observable<null> {
+	private catchGetWinnerError(error: HttpErrorResponse): Observable<null> {
 		return error.status === StatusCode.NOT_FOUND ? of(null) : EMPTY;
+	}
+
+	private catchCreateWinnerError(error: HttpErrorResponse): Observable<void> {
+		if (error.status === StatusCode.SERVER_ERROR) {
+			this.snackBar.openWithDuplicateIdError();
+		}
+
+		return EMPTY;
 	}
 
 	private updateWinner(id: number, currentTime: number) {

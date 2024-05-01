@@ -11,19 +11,20 @@ import {
 import { EngineApiService } from '../services/engine.api.service';
 import { DriveStatus, Movement } from '../../../shared/models/engine.model';
 import {
+	EMPTY,
 	Observable,
 	Subscription,
 	catchError,
 	of,
 	switchMap,
-	tap,
-	throwError
+	tap
 } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StatusCode } from '../../../shared/constants/status-code';
 import { RaceControlService } from '../services/race.control.service';
 import { CAR_WIDTH, TO_SECONDS } from '../../../shared/constants/limits';
 import { animationInit } from '../../../shared/constants/animations';
+import { SnackBarService } from '../../../shared/services/snack-bar.service';
 
 @Directive({
 	selector: '[raceControlling]',
@@ -43,6 +44,7 @@ export class ControllingDirective {
 
 	private readonly render = inject(Renderer2);
 	private readonly elementRef = inject(ElementRef);
+	private readonly snackBar = inject(SnackBarService);
 	private readonly apiService = inject(EngineApiService);
 	private readonly controlService = inject(RaceControlService);
 
@@ -139,6 +141,11 @@ export class ControllingDirective {
 		if (error.status === StatusCode.SERVER_ERROR) {
 			return of({ success: false });
 		}
-		return throwError(() => error);
+
+		if (error.status === StatusCode.MANY_REQUESTS) {
+			this.snackBar.openWithDriveInProgressError();
+		}
+
+		return EMPTY;
 	}
 }
