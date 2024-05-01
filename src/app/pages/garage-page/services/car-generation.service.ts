@@ -36,8 +36,7 @@ export class CarGenerationService {
 
 	private getRandomColor(): string {
 		const length = 6;
-		const color = Array.from({ length }, this.getRandomSign).join('');
-
+		const color = Array.from({ length }, () => this.getRandomSign).join('');
 		return `#${color}`;
 	}
 
@@ -62,7 +61,7 @@ export class CarGenerationService {
 	}
 
 	private getFullName(): string {
-		const name = this.getRandomName() as keyof typeof CAR_MODELS;
+		const name = this.getRandomName() as CarNames;
 		const model = this.getRandomModel(name);
 
 		return `${name} ${model}`;
