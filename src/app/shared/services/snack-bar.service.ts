@@ -20,4 +20,8 @@ export class SnackBarService {
 	public openWithDriveInProgressError(): void {
 		this.snackBar.open(this.message.DRIVE_IN_PROGRESS, 'Ok');
 	}
+
+	public openWithUnavailableServerError(): void {
+		this.snackBar.open(this.message.UNAVAILABLE_SERVER, 'Ok');
+	}
 }

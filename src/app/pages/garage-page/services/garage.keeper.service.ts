@@ -1,8 +1,9 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { GarageApiService } from '../../../shared/services/garage.api.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { Subject, switchMap } from 'rxjs';
+import { EMPTY, Subject, catchError, switchMap } from 'rxjs';
 import { Car } from '../../../shared/models/garage.model';
+import { SnackBarService } from '../../../shared/services/snack-bar.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -13,10 +14,16 @@ export class GarageKeeperService {
 
 	public updateCar$ = new Subject<Car>();
 
+	private readonly snackBar = inject(SnackBarService);
 	private readonly apiService = inject(GarageApiService);
 
 	private readonly cars$ = toObservable(this.page).pipe(
-		switchMap((page) => this.apiService.getAllCars(page))
+		switchMap((page) => this.apiService.getAllCars(page)),
+		catchError(() => {
+			this.snackBar.openWithUnavailableServerError();
+
+			return EMPTY;
+		})
 	);
 
 	public cars = toSignal(this.cars$, {

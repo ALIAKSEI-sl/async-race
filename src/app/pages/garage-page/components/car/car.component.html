@@ -1,11 +1,13 @@
-<div class="general-buttons">
+<div class="buttons">
 	<button mat-flat-button color="primary" (click)="emitUpdateCar()">
 		Update
 	</button>
 	<button mat-flat-button color="primary" (click)="removeCar()">Remove</button>
-	<span class="car-name">{{ car.name }}</span>
+	<b
+		><span class="car-name">{{ car.name }}</span></b
+	>
 </div>
-<div class="control-buttons">
+<div class="buttons">
 	<button
 		mat-flat-button
 		color="primary"
@@ -25,7 +27,6 @@
 </div>
 <div class="road" [style.color]="car.color">
 	<div
-		class="car"
 		raceControlling
 		[@moveAnimation]="{
 			value: moveAnimations().state,

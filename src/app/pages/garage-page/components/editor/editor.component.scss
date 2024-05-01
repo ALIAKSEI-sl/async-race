@@ -1,4 +1,5 @@
-// :host {
-// 	display: flex;
-// 	justify-content: center;
-// }
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

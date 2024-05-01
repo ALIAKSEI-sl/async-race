@@ -1,0 +1,37 @@
+race-winners-table {
+	.mdc-data-table__header-cell {
+		text-align: center;
+	}
+	.mdc-data-table__cell {
+		text-align: center;
+	}
+}
+
+.color-field.mat-mdc-form-field {
+	max-width: 40px;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+	display: none;
+}
+
+.mat-mdc-form-field {
+	.mat-mdc-text-field-wrapper {
+		border-radius: 5px;
+	}
+}
+
+.color-field {
+	.mdc-text-field {
+		padding: 0 6px;
+	}
+
+	.mdc-text-field--filled {
+		height: 36px;
+	}
+
+	.mdc-text-field--no-label .mat-mdc-form-field-infix {
+		padding-top: 6px;
+		padding-bottom: 0;
+	}
+}

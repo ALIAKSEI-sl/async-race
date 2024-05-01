@@ -63,9 +63,14 @@ export class WinnersKeeperService {
 	private getAllWinners = ([page, order]: WinnersParam): Observable<
 		FullWinner[]
 	> =>
-		this.winnersApiService
-			.getAllWinners({ page, ...order })
-			.pipe(switchMap(this.getFullWinners));
+		this.winnersApiService.getAllWinners({ page, ...order }).pipe(
+			catchError(() => {
+				this.snackBar.openWithUnavailableServerError();
+
+				return EMPTY;
+			}),
+			switchMap(this.getFullWinners)
+		);
 
 	private getFullWinners = (winners: Winner[]): Observable<FullWinner[]> =>
 		forkJoin(
