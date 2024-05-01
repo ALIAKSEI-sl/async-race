@@ -1,6 +1,6 @@
 # AsyncRace
 
-## Deploy: [link](https://async-race-awnhw6z9t-aliaksei-sls-projects.vercel.app/)
+## Deploy: [link](https://async-race-65gwgjq7l-aliaksei-sls-projects.vercel.app)
 
 ## Score: 340/370
 
