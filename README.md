@@ -12,6 +12,8 @@ Run `npm run lint` to runs ESLint checks.
 
 Run `npm run format` for auto-formatting and `npm run ci:format` for checking issues.
 
+## Checklist
+
 Basic Structure (85 points)
 
 1. View Configuration (30 points)
@@ -61,11 +63,11 @@ Application Architecture (40 points)
 
 Dynamic Content Generation (30 points)
 
-- []JavaScript-Generated HTML Content (30 points): All HTML content must be dynamically generated using JavaScript, with the <body> tag containing only a single <script> tag.
+- [x] JavaScript-Generated HTML Content (30 points): All HTML content must be dynamically generated using JavaScript, with the <body> tag containing only a single <script> tag.
 
 Single Page Application (25 points)
 
-- [x]SPA Implementation (25 points): The application must be a Single Page Application (SPA) using either React v18+ or Angular v17+. All content must be generated using TypeScript with strict and noImplicitAny settings enabled in tsconfig.json, ensuring seamless user experience without page reloads during navigation.
+- [x] SPA Implementation (25 points): The application must be a Single Page Application (SPA) using either React v18+ or Angular v17+. All content must be generated using TypeScript with strict and noImplicitAny settings enabled in tsconfig.json, ensuring seamless user experience without page reloads during navigation.
 
 Bundling and Tooling (20 points)
 
@@ -73,7 +75,7 @@ Bundling and Tooling (20 points)
 
 Code Quality and Standards (15 points)
 
-- [x]Eslint with Airbnb Style Guide (15 points): Code must adhere to the Airbnb ESLint configuration to maintain code quality, as outlined in the Airbnb style guide. Specific rules may be adjusted only with mentor approval, and there should be no ESLint errors or warnings.
+- [x] Eslint with Airbnb Style Guide (15 points): Code must adhere to the Airbnb ESLint configuration to maintain code quality, as outlined in the Airbnb style guide. Specific rules may be adjusted only with mentor approval, and there should be no ESLint errors or warnings.
 
 Code Organization and Efficiency (15 points)
 
