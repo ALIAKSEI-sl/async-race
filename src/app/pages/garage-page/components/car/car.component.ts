@@ -17,13 +17,14 @@ import { GarageApiService } from '../../../../shared/services/garage.api.service
 import { ControllingDirective } from '../../directives/controlling.directive';
 import { RaceControlService } from '../../services/race.control.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter } from 'rxjs';
+import { filter, mergeMap } from 'rxjs';
 import { trigger } from '@angular/animations';
 import {
 	animationInit,
 	moveAnimation
 } from '../../../../shared/constants/animations';
 import { CAR_WIDTH } from '../../../../shared/constants/limits';
+import { WinnersApiService } from '../../../../shared/services/winners.api.service';
 
 @Component({
 	selector: 'race-car',
@@ -49,7 +50,8 @@ export class CarComponent implements OnInit {
 	public carStatus = signal<boolean | null>(null);
 
 	private readonly destroyRef = inject(DestroyRef);
-	private readonly apiService = inject(GarageApiService);
+	private readonly garageApiService = inject(GarageApiService);
+	private readonly winnersApiService = inject(WinnersApiService);
 	private readonly keeperService = inject(GarageKeeperService);
 	private readonly controlService = inject(RaceControlService);
 
@@ -64,8 +66,9 @@ export class CarComponent implements OnInit {
 	}
 
 	public removeCar(): void {
-		this.apiService
+		this.garageApiService
 			.removeCar(this.car.id)
+			.pipe(mergeMap(() => this.winnersApiService.removeWinner(this.car.id)))
 			.subscribe(() => this.keeperService.updateGarage());
 	}
 

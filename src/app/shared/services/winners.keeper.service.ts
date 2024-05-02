@@ -72,14 +72,17 @@ export class WinnersKeeperService {
 			switchMap(this.getFullWinners)
 		);
 
-	private getFullWinners = (winners: Winner[]): Observable<FullWinner[]> =>
-		forkJoin(
+	private getFullWinners = (winners: Winner[]): Observable<FullWinner[]> => {
+		if (winners.length === 0) return of([]);
+
+		return forkJoin(
 			winners.map((winner) =>
 				this.garageApiService
 					.getCar(winner.id)
 					.pipe(map((car) => ({ ...winner, ...car })))
 			)
 		);
+	};
 
 	private winners$ = combineLatest([this.page$, this.order$]).pipe(
 		switchMap(this.getAllWinners)
