@@ -36,7 +36,8 @@ export class CarGenerationService {
 
 	private getRandomColor(): string {
 		const length = 6;
-		const color = Array.from({ length }, () => this.getRandomSign).join('');
+		const color = Array.from({ length }, () => this.getRandomSign()).join('');
+		console.log(color);
 		return `#${color}`;
 	}
 
